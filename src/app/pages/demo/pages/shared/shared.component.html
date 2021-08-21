@@ -1,1 +1,16 @@
-<app-button type="button">Click me!</app-button>
+<h2>Form</h2>
+
+<app-button type="button" (click)="patchValue()">Set test value</app-button>
+
+<form
+  [formGroup]="form"
+  novalidate
+  autocomplete="off"
+  (ngSubmit)="handleSubmit()"
+>
+  <app-input formControlName="input"></app-input>
+</form>
+
+<code>
+  {{ form.value | json }}
+</code>
