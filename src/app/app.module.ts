@@ -11,11 +11,13 @@ import { AppComponent } from './app.component';
 
 import { environment } from '@src/environments/environment';
 import { HeaderComponent } from './components';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase.config),
     AngularFirestoreModule,
