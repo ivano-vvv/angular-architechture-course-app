@@ -7,6 +7,7 @@ import { PasswordModule } from './password';
 import { SelectModule } from './select';
 import { CheckboxesModule } from '@src/../course_sources/4_shared/src/app/shared';
 import { RadiosModule } from './radios';
+import { DateModule } from './date';
 
 @NgModule({
   declarations: [],
@@ -18,6 +19,7 @@ import { RadiosModule } from './radios';
     SelectModule,
     CheckboxesModule,
     RadiosModule,
+    DateModule,
   ],
   exports: [
     InputModule,
@@ -26,6 +28,7 @@ import { RadiosModule } from './radios';
     SelectModule,
     CheckboxesModule,
     RadiosModule,
+    DateModule,
   ],
 })
 export class ControlsModule {}
