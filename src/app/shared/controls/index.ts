@@ -6,3 +6,4 @@ export * from './password';
 export * from './select';
 export * from './checkboxes';
 export * from './date';
+export * from './date-range';
