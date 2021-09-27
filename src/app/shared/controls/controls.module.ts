@@ -5,6 +5,7 @@ import { InputModule } from './input';
 import { FormFieldModule } from './form-field';
 import { PasswordModule } from './password';
 import { SelectModule } from './select';
+import { CheckboxesModule } from '@src/../course_sources/4_shared/src/app/shared';
 
 @NgModule({
   declarations: [],
@@ -14,7 +15,14 @@ import { SelectModule } from './select';
     FormFieldModule,
     PasswordModule,
     SelectModule,
+    CheckboxesModule,
   ],
-  exports: [InputModule, FormFieldModule, PasswordModule, SelectModule],
+  exports: [
+    InputModule,
+    FormFieldModule,
+    PasswordModule,
+    SelectModule,
+    CheckboxesModule,
+  ],
 })
 export class ControlsModule {}
