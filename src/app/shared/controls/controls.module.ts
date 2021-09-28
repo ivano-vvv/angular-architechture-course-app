@@ -9,6 +9,7 @@ import { CheckboxesModule } from '@src/../course_sources/4_shared/src/app/shared
 import { RadiosModule } from './radios';
 import { DateModule } from './date';
 import { DateRangeModule } from './date-range';
+import { AutocompleteModule } from './autocomplete';
 
 @NgModule({
   declarations: [],
@@ -22,6 +23,7 @@ import { DateRangeModule } from './date-range';
     RadiosModule,
     DateModule,
     DateRangeModule,
+    AutocompleteModule,
   ],
   exports: [
     InputModule,
@@ -32,6 +34,7 @@ import { DateRangeModule } from './date-range';
     RadiosModule,
     DateModule,
     DateRangeModule,
+    AutocompleteModule
   ],
 })
 export class ControlsModule {}

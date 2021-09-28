@@ -7,3 +7,4 @@ export * from './select';
 export * from './checkboxes';
 export * from './date';
 export * from './date-range';
+export * from './autocomplete';
