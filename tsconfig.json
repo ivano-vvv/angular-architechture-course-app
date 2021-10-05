@@ -12,6 +12,7 @@
       ]
     },
     "outDir": "./dist/out-tsc",
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
@@ -30,7 +31,7 @@
     ],
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
