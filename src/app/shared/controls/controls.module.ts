@@ -5,7 +5,7 @@ import { InputModule } from './input';
 import { FormFieldModule } from './form-field';
 import { PasswordModule } from './password';
 import { SelectModule } from './select';
-import { CheckboxesModule } from '@src/../course_sources/4_shared/src/app/shared';
+import { CheckboxesModule } from './checkboxes';
 import { RadiosModule } from './radios';
 import { DateModule } from './date';
 import { DateRangeModule } from './date-range';
