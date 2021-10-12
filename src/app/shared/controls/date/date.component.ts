@@ -21,9 +21,9 @@ export class DateComponent implements OnInit, ControlValueAccessor {
 
     @Input() placeholder: string;
 
-    @Input() min: Date;
+    @Input() min: Date | null;
 
-    @Input() max: Date;
+    @Input() max: Date | null;
 
     @Output() changed = new EventEmitter<Value | null>();
     @Output() closed = new EventEmitter<void>();
