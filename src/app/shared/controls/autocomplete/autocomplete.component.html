@@ -13,7 +13,7 @@
     <mat-option *ngFor="let option of options$ | async" [value]="option">
       <div class="option">
         <div class="option__icon" *ngIf="option.icon">
-          <span [ngClass]="option.icon.cssClass"></span>
+          <span [ngClass]="option.icon.cssClass || ''"></span>
           <!-- <img [src]=""> -->
         </div>
         <div
