@@ -2,6 +2,8 @@ import firebase from 'firebase';
 
 import { Employee, Recruiter } from './roles';
 
+export * from './roles';
+
 export interface User {
   uid: string;
   name: string;
