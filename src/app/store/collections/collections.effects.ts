@@ -6,11 +6,12 @@ import {
 import { isDbCollection } from '@app/models/backend';
 import { ControlItem, Item } from '@app/models/frontend';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Observable, zip } from 'rxjs';
+import { Observable, of, zip } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
 
 import * as fromActions from './collections.actions';
 import { Collection, Collections } from './collections.models';
+import { getMappedCountryList } from './collections.utils';
 
 type Action = fromActions.All;
 
@@ -50,14 +51,16 @@ export class CollectionsEffects {
             .pipe(
               take(1),
               map((items) => items.map((x) => convertDocumentToItem(x)))
-            )
+            ),
+          of(getMappedCountryList())
         ).pipe(
-          map(([roles, specializations, qualifications, skills]) => {
+          map(([roles, specializations, qualifications, skills, countries]) => {
             const collections: Collections = {
               qualifications: formCollection(qualifications),
               roles: formCollection(roles),
               skills: formCollection(skills),
               specializations: formCollection(specializations),
+              countries: formCollection(countries),
             };
 
             return new fromActions.ReadSuccess(collections);

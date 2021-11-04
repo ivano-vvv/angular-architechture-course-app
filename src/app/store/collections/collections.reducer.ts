@@ -33,6 +33,10 @@ const initialState: CollectionsState = {
       controlItems: [],
       items: [],
     },
+    countries: {
+      controlItems: [],
+      items: [],
+    }
   },
 };
 

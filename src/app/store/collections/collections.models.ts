@@ -6,6 +6,7 @@ export interface Collections {
   specializations: Collection;
   qualifications: Collection;
   skills: Collection;
+  countries: Collection;
 }
 
 export interface Collection {
