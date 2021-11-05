@@ -90,4 +90,23 @@ export class UserEffects {
       )
     )
   );
+
+  signOut: Observable<Action> = createEffect(() =>
+    this.actions.pipe(
+      ofType(fromActions.Types.SIGN_OUT),
+      switchMap(() =>
+        from(this.fireAuth.signOut()).pipe(
+          map(() => new fromActions.SignOutSuccess()),
+          catchError((err: unknown) => {
+            if (err instanceof Error) {
+              this.notification.error(err.message);
+              return of(new fromActions.SignOutError(err.message));
+            }
+
+            return of(new fromActions.SignOutError('Unknown error'));
+          })
+        )
+      )
+    )
+  );
 }
