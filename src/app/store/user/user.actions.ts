@@ -35,7 +35,7 @@ export const isSignInSuccessAction = getActionGuard<SignInSuccess>(
 
 export class SignInError implements Action {
   readonly type = Types.SIGN_IN_ERROR;
-  constructor(public error: Error) {}
+  constructor(public error: string) {}
 }
 export const isSignInErrorAction = getActionGuard<SignInError>(
   Types.SIGN_IN_ERROR
@@ -59,7 +59,7 @@ export const isSignUpSuccessAction = getActionGuard<SignUpSuccess>(
 
 export class SignUpError implements Action {
   readonly type = Types.SIGN_UP_ERROR;
-  constructor(public error: Error) {}
+  constructor(public error: string) {}
 }
 export const isSignUpErrorAction = getActionGuard<SignUpError>(
   Types.SIGN_UP_ERROR
@@ -81,6 +81,7 @@ export const isSignOutSuccessAction = getActionGuard<SignOutSuccess>(
 
 export class SignOutError implements Action {
   readonly type = Types.SIGN_OUT_ERROR;
+  constructor(public error: string) {}
 }
 export const isSignOutErrorAction = getActionGuard<SignOutError>(
   Types.SIGN_OUT_ERROR
