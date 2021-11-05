@@ -27,7 +27,7 @@ export const isSignInAction = getActionGuard<SignIn>(Types.SIGN_IN);
 
 export class SignInSuccess implements Action {
   readonly type = Types.SIGN_IN_SUCCESS;
-  constructor(public uid: string, public user: User) {}
+  constructor(public uid: string, public user: User | null) {}
 }
 export const isSignInSuccessAction = getActionGuard<SignInSuccess>(
   Types.SIGN_IN_SUCCESS
