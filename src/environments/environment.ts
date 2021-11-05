@@ -14,6 +14,10 @@ export const environment = {
       messagingSenderId: '',
       appId: '',
     },
+    actionCodeSettings: {
+      url: '',
+      handleCodeApp: true,
+    },
   },
 };
 

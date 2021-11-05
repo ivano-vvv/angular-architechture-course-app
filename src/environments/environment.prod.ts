@@ -11,4 +11,8 @@ export const environment = {
       appId: '1:983941060571:web:53ad859c1e911ad140b9fe',
     },
   },
+  actionCodeSettings: {
+    url: '',
+    handleCodeApp: true,
+  },
 };

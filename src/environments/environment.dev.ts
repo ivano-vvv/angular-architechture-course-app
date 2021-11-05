@@ -10,5 +10,9 @@ export const environment = {
       messagingSenderId: '983941060571',
       appId: '1:983941060571:web:53ad859c1e911ad140b9fe',
     },
+    actionCodeSettings: {
+      url: 'http://localhost:5200/demo',
+      handleCodeApp: true,
+    },
   },
 };

@@ -86,3 +86,14 @@ export class SignOutError implements Action {
 export const isSignOutErrorAction = getActionGuard<SignOutError>(
   Types.SIGN_OUT_ERROR
 );
+
+export type All =
+  | SignIn
+  | SignInSuccess
+  | SignInError
+  | SignUp
+  | SignUpSuccess
+  | SignUpError
+  | SignOut
+  | SignOutSuccess
+  | SignOutError;
