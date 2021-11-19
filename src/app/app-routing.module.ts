@@ -9,6 +9,10 @@ const routes: Routes = [
         path: 'demo',
         loadChildren: () => import('./pages/demo').then((i) => i.DemoModule),
       },
+      {
+        path: 'auth',
+        loadChildren: () => import('./pages/auth').then((i) => i.AuthModule),
+      },
     ],
   },
 ];
