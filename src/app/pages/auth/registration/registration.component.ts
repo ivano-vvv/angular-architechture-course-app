@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 import { regex } from '@app/shared';
 import { State } from '@app/store';
+import * as fromUser from '@app/store/user';
 
 import { initPasswordRepeatValidator } from './utils/custom-validators';
 
@@ -16,9 +18,13 @@ import { initPasswordRepeatValidator } from './utils/custom-validators';
 export class RegistrationComponent implements OnInit {
   form: FormGroup;
 
+  loading$: Observable<boolean>;
+
   constructor(private store: Store<State>) {}
 
   ngOnInit(): void {
+    this.loading$ = this.store.pipe(select(fromUser.getLoading));
+
     this.form = new FormGroup(
       {
         email: new FormControl(null, {
