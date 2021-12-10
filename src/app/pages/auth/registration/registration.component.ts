@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { regex } from '@app/shared';
+import { regex, regexErrors } from '@app/shared';
 import { State } from '@app/store';
 import * as fromUser from '@app/store/user';
 
@@ -17,6 +17,8 @@ import { initPasswordRepeatValidator } from './utils/custom-validators';
 })
 export class RegistrationComponent implements OnInit {
   form: FormGroup;
+
+  regexErrors = regexErrors;
 
   loading$: Observable<boolean>;
 
@@ -53,10 +55,13 @@ export class RegistrationComponent implements OnInit {
           ],
           updateOn: 'blur',
         }),
-      },
-      {
-        validators: [initPasswordRepeatValidator(this.form)],
-      }
-    );
+      });
+
+    this.form.addValidators([initPasswordRepeatValidator(this.form)]);
+  }
+
+  handleSubmit(): void {
+    alert('submit');
+    console.log(this.form.value);
   }
 }

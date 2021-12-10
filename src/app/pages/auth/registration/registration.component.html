@@ -3,9 +3,47 @@
     <h1>Registration</h1>
   </header>
 
-  <main class="app-page__content"></main>
+  <form *ngIf="form" [formGroup]="form" (submit)="handleSubmit()">
+    <main class="app-page__content">
+      <app-form-field
+        label="Email"
+        [required]="true"
+        [control]="form.controls.email"
+        [isInline]="false"
+        [patternError]="regexErrors.email"
+      >
+        <app-input formControlName="email"></app-input>
+      </app-form-field>
 
-  <footer class="app-page__footer"></footer>
+      <app-form-field
+        label="Password"
+        [required]="true"
+        [control]="form.controls.password"
+        [isInline]="false"
+        [patternError]="regexErrors.password"
+      >
+        <app-password formControlName="password"></app-password>
+      </app-form-field>
+
+      <app-form-field
+        label="Repeat password"
+        [required]="true"
+        [control]="form.controls.passwordRepeat"
+        [isInline]="false"
+        [patternError]="regexErrors.password"
+      >
+        <app-password formControlName="passwordRepeat"></app-password>
+      </app-form-field>
+
+      <div class="form__error" [class.form__error_active]="form.hasError('repeat')">
+        Entered passwords don't match
+      </div>
+    </main>
+
+    <footer class="app-page__footer">
+      <app-button type="submit">Register</app-button>
+    </footer>
+  </form>
 
   <app-spinner *ngIf="loading$ | async"></app-spinner>
 </div>
