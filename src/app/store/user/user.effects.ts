@@ -71,6 +71,8 @@ export class UserEffects {
                 user.sendEmailVerification(
                   environment.firebase.actionCodeSettings
                 );
+
+                this.router.navigate(['auth/email-confirm']);
               }
             });
           }),
