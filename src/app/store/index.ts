@@ -13,4 +13,4 @@ export const reducers: ActionReducerMap<State> = {
   user: fromUser.reducer,
 };
 
-export const effects = [fromCollections.CollectionsEffects];
+export const effects = [fromCollections.CollectionsEffects, fromUser.UserEffects];
