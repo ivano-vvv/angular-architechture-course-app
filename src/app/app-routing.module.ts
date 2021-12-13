@@ -13,7 +13,22 @@ const routes: Routes = [
         path: 'auth',
         loadChildren: () => import('./pages/auth').then((i) => i.AuthModule),
       },
+      {
+        path: 'static',
+        loadChildren: () =>
+          import('./pages/static').then((i) => i.StaticModule),
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'static/welcome',
+      },
     ],
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'static/not-found',
   },
 ];
 
