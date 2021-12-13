@@ -122,6 +122,7 @@ export class UserEffects {
       ofType(fromActions.Types.SIGN_OUT),
       switchMap(() =>
         from(this.fireAuth.signOut()).pipe(
+          tap(() => this.router.navigate(['./auth/login'])),
           map(() => new fromActions.SignOutSuccess()),
           catchError((err: unknown) => {
             if (err instanceof Error) {
