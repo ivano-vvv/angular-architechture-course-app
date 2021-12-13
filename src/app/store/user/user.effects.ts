@@ -59,23 +59,24 @@ export class UserEffects {
               .valueChanges()
               .pipe(
                 take(1),
+                tap(() => this.router.navigate(['./'])),
                 map(
                   (user) =>
                     new fromActions.SignInSuccess(
                       signInState.user?.uid as string,
                       user || null
                     )
-                ),
-                catchError((error: unknown) => {
-                  if (error instanceof Error) {
-                    this.notification.error(error.message);
-                    return of(new fromActions.SignInError(error.message));
-                  }
-
-                  return of(new fromActions.SignUpError('Unknown error'));
-                })
+                )
               )
-          )
+          ),
+          catchError((error: unknown) => {
+            if (error instanceof Error) {
+              this.notification.error(error.message);
+              return of(new fromActions.SignInError(error.message));
+            }
+
+            return of(new fromActions.SignUpError('Unknown error'));
+          })
         )
       )
     )

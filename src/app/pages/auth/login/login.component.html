@@ -1,1 +1,35 @@
-<p>login works!</p>
+<div class="app-page">
+  <header class="app-page__header">
+    <h1>Log In</h1>
+  </header>
+
+  <form *ngIf="form" [formGroup]="form" (submit)="handleSubmit()">
+    <main class="app-page__content">
+      <app-form-field
+        label="Email"
+        [required]="true"
+        [control]="form.controls.email"
+        [isInline]="false"
+        [patternError]="regexErrors.email"
+      >
+        <app-input formControlName="email"></app-input>
+      </app-form-field>
+
+      <app-form-field
+        label="Password"
+        [required]="true"
+        [control]="form.controls.password"
+        [isInline]="false"
+        [patternError]="regexErrors.password"
+      >
+        <app-password formControlName="password"></app-password>
+      </app-form-field>
+    </main>
+
+    <footer class="app-page__footer">
+      <app-button type="submit">Register</app-button>
+    </footer>
+  </form>
+
+  <app-spinner *ngIf="loading$ | async"></app-spinner>
+</div>
