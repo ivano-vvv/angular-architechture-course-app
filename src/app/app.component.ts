@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 
 import * as fromRoot from './store';
 import * as fromCollections from './store/collections';
+import * as fromUser from './store/user';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
   constructor(private readonly store: Store<fromRoot.State>) {}
 
   ngOnInit(): void {
+    this.store.dispatch(new fromUser.Init());
     this.store.dispatch(new fromCollections.Read());
   }
 }
