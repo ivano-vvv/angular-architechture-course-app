@@ -4,6 +4,11 @@ import { getActionGuard } from '../store.utils';
 import { EmailPasswordCredentials } from './user.models';
 
 export enum Types {
+  INIT = '[User] Init : Start',
+  INIT_AUTHORIZED = '[User] Init : Authorized',
+  INIT_UNAUTHORIZED = '[User] Init : Unauthorized',
+  INIT_ERROR = '[User] Init : Error',
+
   SIGN_IN = '[User] Sign In : Start',
   SIGN_IN_SUCCESS = '[User] Sign In : Success',
   SIGN_IN_ERROR = '[User] Sign In : Error',
@@ -16,6 +21,36 @@ export enum Types {
   SIGN_OUT_SUCCESS = '[User] Sign Out : Success',
   SIGN_OUT_ERROR = '[User] Sign Out : Error',
 }
+
+//
+
+export class Init implements Action {
+  readonly type = Types.INIT;
+  constructor() {}
+}
+export const isInitAction = getActionGuard<Init>(Types.INIT);
+
+export class InitAuthorized implements Action {
+  readonly type = Types.INIT_AUTHORIZED;
+  constructor(public uid: string, public user: User | null) {}
+}
+export const isInitAuthorizedAction = getActionGuard<InitAuthorized>(
+  Types.INIT_AUTHORIZED
+);
+
+export class InitUnauthorized implements Action {
+  readonly type = Types.INIT_UNAUTHORIZED;
+  constructor() {}
+}
+export const isInitUnauthorizedAction = getActionGuard<InitUnauthorized>(
+  Types.INIT_UNAUTHORIZED
+);
+
+export class InitError implements Action {
+  readonly type = Types.INIT_ERROR;
+  constructor(public error: string) {}
+}
+export const isInitError = getActionGuard<InitError>(Types.INIT_ERROR);
 
 //
 
@@ -88,6 +123,10 @@ export const isSignOutErrorAction = getActionGuard<SignOutError>(
 );
 
 export type All =
+  | Init
+  | InitAuthorized
+  | InitUnauthorized
+  | InitError
   | SignIn
   | SignInSuccess
   | SignInError

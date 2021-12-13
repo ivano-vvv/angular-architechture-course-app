@@ -12,6 +12,12 @@ import {
   isSignUpErrorAction,
   isSignUpSuccessAction,
 } from './user.actions';
+import {
+  isInitAction,
+  isInitAuthorizedAction,
+  isInitError,
+  isInitUnauthorizedAction,
+} from '.';
 
 export type UserState = {
   entity: User | null;
@@ -31,6 +37,24 @@ export function reducer(
   state: UserState = initialState,
   action: Action
 ): UserState {
+  // init
+
+  if (isInitAction(action)) {
+    return { ...state, loading: true, error: null };
+  }
+
+  if (isInitAuthorizedAction(action)) {
+    return { ...state, loading: false, uid: action.uid, entity: action.user };
+  }
+
+  if (isInitUnauthorizedAction(action)) {
+    return { ...state, loading: false, uid: null, entity: null };
+  }
+
+  if (isInitError(action)) {
+    return { ...state, loading: false, error: action.error };
+  }
+
   // sign in
 
   if (isSignInAction(action)) {
