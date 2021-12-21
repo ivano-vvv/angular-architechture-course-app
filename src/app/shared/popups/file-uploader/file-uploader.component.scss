@@ -1,0 +1,59 @@
+@import "styles/colors";
+
+.file-uploader {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__header {
+    margin-bottom: 12px;
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__footer {
+    display: inline;
+    flex-direction: row-reverse;
+    margin-top: 12px;
+  }
+}
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px dotted $primary-light;
+  border-radius: 4px;
+  padding: 20px;
+
+  &__hovered {
+    border: 2px solid $primary;
+
+    .dropzone__label,
+    .dropzone__file {
+      opacity: 0.3;
+    }
+  }
+
+  &__label {
+    margin: 0;
+  }
+}
+
+.file {
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    color: $primary;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-dark;
+    }
+  }
+}
